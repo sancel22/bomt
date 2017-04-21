@@ -22,3 +22,36 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Model\Remittance::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});
+
+$factory->define(App\Model\Recipient::class, function (Faker\Generator $faker) {
+    return [
+        'full_name' => $faker->name,
+        'address' => $faker->address,
+        'contact_number' => $faker->randomNumber(),
+
+    ];
+});
+
+$factory->define(App\Model\Transaction::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => factory(App\User::class)->create()->id,
+        'remittance_id' => factory(App\Model\Remittance::class)->create()->id,
+        'recipient_id' => factory(App\Model\Recipient::class)->create()->id,
+        'memo' => $faker->sentence,
+    ];
+});
+
+
+$factory->define(App\Model\Credit::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => factory(App\User::class)->create()->id,
+        'amount' => $faker->randomNumber(),
+        'payment_code' => $faker->word,
+    ];
+});
