@@ -23,11 +23,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">BIBO GLOBAL ONLINE MONEY TRANSFER</a>
+              <a class="navbar-brand" href="#">BIBO ON CaRe</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
                 <li><a href="#about">Guide</a></li>
                 <li><a href="#contact">Faq</a></li>
                 <li><a href="#contact">Help</a></li>

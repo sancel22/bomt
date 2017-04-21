@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' =>'PagesController@index']);
+Route::get('/dashboard', 'PagesController@dashboard');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
