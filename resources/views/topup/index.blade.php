@@ -39,6 +39,7 @@
                         <option value="me">MetroBank</option>
                     </select>
                 </div>
+                    <p class="help-box">Process via DragonPay</p>
             </div>
             <div id="credit">
                 <div class="form-group">
@@ -61,6 +62,7 @@
                     </div>
                     </div>
                 </div>
+                    <p class="help-box">Process via Stripe</p>
             </div>
             <button type="submit" class="btn btn-success">
                 Submit
