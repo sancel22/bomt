@@ -12,7 +12,8 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' =>'PagesController@index']);
-Route::get('/dashboard', 'PagesController@dashboard');
+Route::get('/topup', ['as' => 'topup', 'uses' =>'TopUpController@index']);
+Route::post('/topup', ['as' => 'save-top-up', 'uses' =>'TopUpController@store']);
 
 Auth::routes();
 

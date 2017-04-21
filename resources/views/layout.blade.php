@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <style>
         body {
@@ -34,6 +36,32 @@
             </div><!-- /.nav-collapse -->
           </div><!-- /.container -->
         </nav>
-        @yield('content')
+        <div class="col-md-8 col-md-offset-2">
+<div class="col-md-3 sidebar">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{ Auth::user()->name }}</div>
+
+                    <div class="panel-body">
+                        <b>Credit:</b> 1000 <br>
+                        <b>Contact Number:</b> --- <br>
+                        <b>Email:</b> {{ Auth::user()->email }}
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"> Menu </div>
+                    <div class="panel-body">
+                        <ul class="nav nav-sidebar">
+                            <li><a href="{{route('topup')}}">Top Up</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Notification</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @yield('content')
+            </div>
+        </div>
+    @yield('footer_includes')
     </body>
 </html>
