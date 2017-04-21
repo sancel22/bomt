@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="border: 10px solid;">
+<div class="panel panel-default" style="border: 4px solid; border-color: #3097d1;">
     <div class="panel-heading">Login</div>
     <div class="panel-body">
         <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
