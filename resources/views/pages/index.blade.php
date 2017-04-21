@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-    hello world
+    @include('pages.login')
 @stop
