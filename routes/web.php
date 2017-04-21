@@ -13,6 +13,8 @@
 
 Route::get('/', ['as' => 'home', 'uses' =>'PagesController@index']);
 Route::get('/dashboard', 'PagesController@dashboard');
+Route::post('/confirm', 'PagesController@confirm')->name('confirm-send-money-info');
+Route::post('/store', 'PagesController@store')->name('save-send-money-info');
 
 Auth::routes();
 

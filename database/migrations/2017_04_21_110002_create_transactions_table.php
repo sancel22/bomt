@@ -17,8 +17,8 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('remittance_id');
-            $table->integer('recipient_id');
-            $table->string('memo');
+            $table->integer('recipient_id')->nullable();
+            $table->string('memo')->nullable();
             $table->timestamps();
         });
     }
