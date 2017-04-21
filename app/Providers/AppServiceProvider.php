@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use App\Model\Credit;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        view()->composer('*', function($view) {
+            $amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
+            $view->with('credit', $amount);
+        });
     }
 
     /**

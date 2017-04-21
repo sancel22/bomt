@@ -42,7 +42,7 @@
                     <div class="panel-heading">{{ Auth::user()->name }}</div>
 
                     <div class="panel-body">
-                        <b>Credit:</b> 1000 <br>
+                        <b>Credit:</b>  {{ money_format('%i', $credit) }} <br>
                         <b>Contact Number:</b> --- <br>
                         <b>Email:</b> {{ Auth::user()->email }}
                     </div>
