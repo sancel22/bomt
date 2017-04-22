@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use JavaScript;
 use App\Model\Credit;
 use App\Model\Remittance;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TransactionRequest;
+
 
 class PagesController extends Controller
 {
@@ -33,7 +35,7 @@ class PagesController extends Controller
             return redirect()->back();
         }
 
-        $request->user()->credits()->create([
+        $credit = $request->user()->credits()->create([
             'amount' => $amount * -1,
             'payment_code' => 'transfer'
         ]);
@@ -48,6 +50,7 @@ class PagesController extends Controller
             [
                 'remittance_id' => $request->input('remittance_center'),
                 'recipient_id' => $recipient->id,
+                'credit_id' => $credit->id,
                 'memo' => $request->input('message')
             ]
         );
@@ -58,22 +61,25 @@ class PagesController extends Controller
 
     public function history()
     {
-        $rows = \DB::select(
-            "SELECT  transactions.id as transaction_id,
-                    remittances.name as remittance_center,
-                    credits.amount,
-                    recipients.full_name as recipient_name,
-                    recipients.contact_number,
-                    recipients.address,
-                    transactions.memo
-            FROM transactions
-            LEFT JOIN remittances ON transactions.remittance_id = remittances.id
-            LEFT JOIN recipients ON transactions.recipient_id = recipients.id
-            LEFT JOIN credits ON transactions.user_id = credits.user_id AND
-            credits.payment_code = 'transfer'
-            WHERE transactions.user_id =" . Auth::user()->id
-        );
+//        $rows = \DB::select(
+//            "SELECT  transactions.id as transaction_id,
+//                    remittances.name as remittance_center,
+//                    credits.amount,
+//                    recipients.full_name as recipient_name,
+//                    recipients.contact_number,
+//                    recipients.address,
+//                    transactions.memo,
+//                    transactions.created_at as created
+//            FROM transactions
+//            LEFT JOIN remittances ON transactions.remittance_id = remittances.id
+//            LEFT JOIN recipients ON transactions.recipient_id = recipients.id
+//            LEFT JOIN credits ON transactions.user_id = credits.user_id AND
+//            credits.payment_code = 'transfer'
+//            WHERE transactions.user_id =" . Auth::user()->id
+//        );
 
+        $rows = User::with('transactions', 'transactions.remittance', 'transactions.credit', 'transactions.recipient')
+            ->where('id', Auth::user()->id)->first();
         return view('pages.history', compact('rows'));
     }
 }

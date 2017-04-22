@@ -42,6 +42,7 @@ $factory->define(App\Model\Recipient::class, function (Faker\Generator $faker) {
 $factory->define(App\Model\Transaction::class, function (Faker\Generator $faker) {
     return [
         'user_id' => factory(App\User::class)->create()->id,
+        'credit_id' => factory(App\Model\Credit::class)->create()->id,
         'remittance_id' => $faker->randomElement([1, 2, 3, 4, 5, 6]),
         'recipient_id' => factory(App\Model\Recipient::class)->create()->id,
         'memo' => $faker->sentence,

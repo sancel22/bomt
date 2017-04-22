@@ -7,20 +7,24 @@ use App\User;
 
 class Transaction extends Model
 {
-    public $fillable = ['remittance_id', 'recipient_id', 'memo'];
+    public $fillable = ['remittance_id', 'recipient_id', 'memo', 'credit_id'];
 
-    public function transactionRecipients()
+    public function recipient()
     {
-        return $this->hasMany(Recipient::class);
+        return $this->belongsTo(Recipient::class);
     }
 
-    public function transactionRemittances()
+    public function remittance()
     {
-        return $this->hasMany(Remittance::class);
+        return $this->belongsTo(Remittance::class);
     }
 
-    public function transactionUsers()
+    public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function credit(){
+        return $this->belongsTo(Credit::class);
     }
 }
