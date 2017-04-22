@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label for="remittance_id">Remittance Center :</label>
                 <select class="form-control" name="remittance_id" id="remittance_id">
-                    <option value="select"> Select One</option>
+                    <option value=""> Select One</option>
                     @foreach($remittances as $remittance)
                         <option value="{{ $remittance->id }}">{{ $remittance->name }}</option>
                     @endforeach
@@ -104,8 +104,8 @@
                 var val_message = $('#message').val();
 
                 $('.hremittance_center').val(val_remittance);
-                console.log(text_remittance);
-                if (text_remittance == 'Select One') {
+
+                if ($('#remittance_id').val() === '') {
                     $('.sremittance_center').text('');
                 } else {
                     $('.sremittance_center').text(text_remittance);
