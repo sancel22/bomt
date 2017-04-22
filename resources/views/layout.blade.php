@@ -37,14 +37,22 @@
           </div><!-- /.container -->
         </nav>
         <div class="col-md-8 col-md-offset-2">
-<div class="col-md-3 sidebar">
+            <div class="col-md-3 sidebar">
+                @if(Auth::check())
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ Auth::user()->name }}</div>
+                    <div class="panel-heading"> 
+                    @if (Auth::check()) 
+                       {{ Auth::user()->name  }}
+                    @endif
+                    </div>
 
                     <div class="panel-body">
                         <b>Credit:</b>  {{ money_format('%i', $credit) }} <br>
                         <b>Contact Number:</b> --- <br>
-                        <b>Email:</b> {{ Auth::user()->email }}
+                        <b>Email:</b> 
+                            @if(Auth::check())  
+                                {{ Auth::user()->email }}
+                            @endif
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -57,6 +65,7 @@
                         </ul>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="col-md-9">
                 @yield('content')

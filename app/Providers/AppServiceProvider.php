@@ -17,7 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('*', function($view) {
-            $amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
+            $amount = 0;
+            if (auth()->check()) {
+                $amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
+            }
             $view->with('credit', $amount);
         });
     }
