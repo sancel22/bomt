@@ -15,7 +15,7 @@ class PagesController extends Controller
 
     public function index()
     {
-        if(Auth::check()) {
+        if (Auth::check()) {
             $first = 'Fox';
             $last = 'lazy';
 
@@ -47,7 +47,7 @@ class PagesController extends Controller
     public function store(TransactionRequest $request)
     {
 
-
+        
         $recipient = $request->user()->recipients()->create([
             'full_name' => $request->input('recipients_name'),
             'address' => $request->input('address'),
@@ -61,5 +61,10 @@ class PagesController extends Controller
                 'memo' => $request->input('message')
             ]
         );
+    }
+
+    public function history()
+    {
+        return view('');
     }
 }
