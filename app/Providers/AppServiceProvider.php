@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 class AppServiceProvider extends ServiceProvider
 {
 
-    public $amount = 0;
     /**
      * Bootstrap any application services.
      *
@@ -20,10 +19,14 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('*', function($view) {
+            $amount = 0;
             if (auth()->check()) {
-                $this->amount = (new Credit)->getCredits();
+                $amount = (new Credit)->getCredits();
             }
-            $view->with('credit', $this->amount);
+            if ($amount > 0) {
+                $amount /= 100;
+            }
+            $view->with('credit', $amount);
         });
     }
 

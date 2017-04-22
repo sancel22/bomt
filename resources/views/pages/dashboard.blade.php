@@ -28,22 +28,22 @@
             </div>
             <div class="form-group">
                 <label for="recipients_name">Recipient's Name :</label>
-                <input type="text" id="recipients_name" name="recipient_name" class="form-control">
+                <input type="text" id="recipients_name" name="recipients_name" value="{!! old('recipients_name') !!}" class="form-control">
             </div>
 
             <div class="form-group">
                 <label for="contact_number">Recipient's Contact Number :</label>
-                <input type="text" id="contact_number" name="contact_number" class="form-control">
+                <input type="text" id="contact_number" name="contact_number" value="{!! old('contact_number') !!}" class="form-control">
             </div>
 
             <div class="form-gropup">
                 <label for="address">Recipient's Address :</label>
-                <input type="text" id="address" name="address" class="form-control">
+                <input type="text" id="address" name="address" value="{!! old('address') !!}" class="form-control">
             </div>
             <br>
 
             <div class="form-group">
-                <textarea name="memo" class="form-control" id="message"
+                <textarea name="memo" class="form-control" value="{!! old('memo') !!}" id="message"
                           placeholder="Type in your short message"
                           rows="5"></textarea>
             </div>
