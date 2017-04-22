@@ -28,7 +28,7 @@ class PagesController extends Controller
     public function store(TransactionRequest $request)
     {
         $credits = (new Credit)->getCredits();
-        $amount = $request->input('amount');
+        $amount = ($request->input('amount')+$request->input('charges'));
 
         if ($credits < (int) $amount) {
             $request->session()->flash('error', "Sorry Your do not have credits to proceed with this transaction");
@@ -36,7 +36,7 @@ class PagesController extends Controller
         }
 
         $credit = $request->user()->credits()->create([
-            'amount' => $amount * -1,
+            'amount' => $amount * 100 * -1,
             'payment_code' => 'transfer'
         ]);
 

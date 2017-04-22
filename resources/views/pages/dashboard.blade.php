@@ -79,6 +79,8 @@
                     <b>Message:</b> <span class="smessage"></span><br>
                 </div>
                 <div class="modal-footer">
+                    <span class="pull-left"><b>Charge:</b> <span id="charge">100.00</span></span>
+                    {!!Form::hidden('charges', '', ['class' => 'hcharges'] ) !!}
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         Close
                     </button>
@@ -112,7 +114,7 @@
                 }
 
                 $('.hamount').val(val_amount);
-                $('.samount').text(val_amount);
+                $('.samount').text(formatCurrency(val_amount));
 
                 $('.hrecipient').val(val_recipient_name);
                 $('.srecipient').text(val_recipient_name);
@@ -126,9 +128,22 @@
                 $('.hmessage').val(val_message);
                 $('.smessage').text(val_message);
 
+                var c = calculateCharges(val_amount);
+                $('#charge').text(c);
+                $('.hcharges').val(c);
                 $('#form-data').modal('show');
             });
+
+            var calculateCharges = function (amount) {
+                return formatCurrency(amount * .01);
+            };
+
+            var formatCurrency = function(amount) {
+                    return parseFloat(amount, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()
+            }
+
         });
+
     </script>
 
 @endsection
