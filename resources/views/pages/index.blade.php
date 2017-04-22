@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <div class="panel panel-default">
             <img src="{{URL::asset('/images/remittance.png')}}"
-                 style="border: 10px solid; border-color: indianred gainsboro; width:100%;"/>
+                 style="border: 10px solid; border-color: indianred gainsboro; width:100%; height:875px;"/>
         </div>
     </div>
 @stop

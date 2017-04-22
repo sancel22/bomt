@@ -38,7 +38,7 @@
         </nav>
         <div class="col-md-12">
             <div class="col-md-3 sidebar">
-                @include('pages.login') 
+                @include('pages.login')
             </div>
             <div class="col-md-9">
                 @yield('content')
