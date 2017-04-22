@@ -31,6 +31,7 @@ $factory->define(App\Model\Remittance::class, function (Faker\Generator $faker) 
 
 $factory->define(App\Model\Recipient::class, function (Faker\Generator $faker) {
     return [
+        'user_id' => factory(App\User::class)->create()->id,
         'full_name' => $faker->name,
         'address' => $faker->address,
         'contact_number' => $faker->randomNumber(),

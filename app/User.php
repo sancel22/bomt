@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Model\Recipient;
+use App\Model\Transaction;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Model\Credit;
@@ -16,7 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -25,11 +29,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function credits()
     {
-       return $this->hasMany(Credit::class);
+        return $this->hasMany(Credit::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function recipients()
+    {
+        return $this->hasMany(Recipient::class);
     }
 }

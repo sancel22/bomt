@@ -15,6 +15,7 @@ class CreateRecipientsTable extends Migration
     {
         Schema::create('recipients', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('full_name');
             $table->string('address')->nullable();
             $table->string('contact_number');

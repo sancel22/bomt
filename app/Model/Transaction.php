@@ -7,6 +7,8 @@ use App\User;
 
 class Transaction extends Model
 {
+    public $fillable = ['remittance_id', 'recipient_id', 'memo'];
+
     public function transactionRecipients()
     {
         return $this->hasMany(Recipient::class);

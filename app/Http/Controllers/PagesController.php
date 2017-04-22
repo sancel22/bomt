@@ -46,16 +46,20 @@ class PagesController extends Controller
 
     public function store(TransactionRequest $request)
     {
-        DB::table('transactions')->insert([
-            'user_id' => $request->input('user_id'),
-            'remittance_id' => $request->input('remittance_id'),
-            'memo' => $request->input('memo')
-        ]);
 
-        DB::table('recipients')->insert([
-            'full_name' => $request->input('recipient_name'),
+
+        $recipient = $request->user()->recipients()->create([
+            'full_name' => $request->input('recipients_name'),
             'address' => $request->input('address'),
             'contact_number' => $request->input('contact_number')
         ]);
+
+        $request->user()->transactions()->create(
+            [
+                'remittance_id' => $request->input('remittance_center'),
+                'recipient_id' => $recipient->id,
+                'memo' => $request->input('message')
+            ]
+        );
     }
 }
