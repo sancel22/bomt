@@ -5,9 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Credit;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    public $amount = 0;
     /**
      * Bootstrap any application services.
      *
@@ -17,11 +20,14 @@ class AppServiceProvider extends ServiceProvider
     {
 
         view()->composer('*', function($view) {
-            $amount = 0;
             if (auth()->check()) {
-                $amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
+                $this->amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
             }
-            $view->with('credit', $amount);
+            $view->with('credit', $this->amount);
+        });
+
+        Validator::extend('', function($attribute, $value, $parameters, $validator){
+            return $this->amount >= $value;
         });
     }
 

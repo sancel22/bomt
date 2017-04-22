@@ -26,7 +26,7 @@ class TransactionRequest extends FormRequest
         return [
             'amount' => 'numeric|required|max:50000',
             'recipients_name' => 'required',
-            'contact_number' => 'numeric|required',
+            'contact_number' => 'required',
             'remittance_center' => 'required|not_in:select',
         ];
     }
