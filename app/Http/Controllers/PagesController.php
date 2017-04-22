@@ -44,15 +44,36 @@ class PagesController extends Controller
             'contact_number' => $request->input('contact_number')
         ]);
 
-       $request->user()->transactions()->create(
-           [
-               'remittance_id' => $request->input('remittance_center'),
-               'recipient_id' => $recipient->id,
-               'amount' => $amount,
-               'memo' => $request->input('message')
-           ]
-       );
+        $request->user()->transactions()->create(
+            [
+                'remittance_id' => $request->input('remittance_center'),
+                'recipient_id' => $recipient->id,
+                'memo' => $request->input('message')
+            ]
+        );
+
         $request->session()->flash('success', 'Successfully Sent');
         return redirect()->back();
+    }
+
+    public function history()
+    {
+        $rows = \DB::select(
+            "SELECT  transactions.id as transaction_id,
+                    remittances.name as remittance_center,
+                    credits.amount,
+                    recipients.full_name as recipient_name,
+                    recipients.contact_number,
+                    recipients.address,
+                    transactions.memo
+            FROM transactions
+            LEFT JOIN remittances ON transactions.remittance_id = remittances.id
+            LEFT JOIN recipients ON transactions.recipient_id = recipients.id
+            LEFT JOIN credits ON transactions.user_id = credits.user_id AND
+            credits.payment_code = 'transfer'
+            WHERE transactions.user_id =" . Auth::user()->id
+        );
+
+        return view('pages.history', compact('rows'));
     }
 }

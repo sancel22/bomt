@@ -17,6 +17,7 @@ Route::post('/topup', ['as' => 'save-top-up', 'uses' =>'TopUpController@store'])
 Route::get('/dashboard', 'PagesController@dashboard');
 Route::post('/confirm', 'PagesController@confirm')->name('confirm-send-money-info');
 Route::post('/store', 'PagesController@store')->name('save-send-money-info');
+Route::get('/history', 'PagesController@history')->name('user-transaction-history');
 
 Auth::routes();
 

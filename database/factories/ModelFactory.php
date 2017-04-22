@@ -34,7 +34,7 @@ $factory->define(App\Model\Recipient::class, function (Faker\Generator $faker) {
         'user_id' => factory(App\User::class)->create()->id,
         'full_name' => $faker->name,
         'address' => $faker->address,
-        'contact_number' => $faker->randomNumber(),
+        'contact_number' => $faker->randomNumber(8),
 
     ];
 });

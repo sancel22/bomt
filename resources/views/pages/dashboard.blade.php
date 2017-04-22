@@ -21,7 +21,7 @@
 
                 <div class="input-group">
                     <span class="input-group-addon">₱</span>
-                    <input type="text" name="amount" id="amount" class="form-control"
+                    <input type="text" name="amount" value="{!! old('amount') !!}" id="amount" class="form-control"
                            aria-label="Amount (to the nearest peso)">
                     <span class="input-group-addon">.00</span>
                 </div>

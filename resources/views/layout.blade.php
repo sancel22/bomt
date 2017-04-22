@@ -71,8 +71,9 @@
                 <div class="panel-heading"> Menu</div>
                 <div class="panel-body">
                     <ul class="nav nav-sidebar">
+                        <li><a href="/">Send Money</a></li>
                         <li><a href="{{route('topup')}}">Top Up</a></li>
-                        <li><a href="#">History</a></li>
+                        <li><a href="{{route('user-transaction-history')}}">History</a></li>
                         <li><a href="#">Notification</a></li>
                     </ul>
                 </div>
