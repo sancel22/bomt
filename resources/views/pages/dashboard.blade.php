@@ -4,89 +4,102 @@
     <div class="panel panel-primary">
         <div class="panel-heading"> Send Money </div>
         <div class="panel-body"> 
-            @include('flash')
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+            @include('errors.list')
+            <div class="form-group">
+                <label for="remittance_id">Remittance Center :</label>
+                <select class="form-control" name="remittance_id" id = "remittance_id">
+                        <option value="select"> Select One </option>
+                    @foreach($remittances as $remittance)
+                        <option value="{{ $remittance->id }}">{{ $remittance->name }}</option>
+                    @endforeach
+                </select>
+           </div> 
 
-                    <div class="panel-body">
-                        You are logged in!
-                    </div>
+            <div class="form-group">
+                <label for="amount">Amount :</label>
+                <div class="input-group">
+                    <span class="input-group-addon">₱</span>
+                    <input type="text" name="amount" id="amount" class="form-control"
+                           aria-label="Amount (to the nearest peso)">
+                    <span class="input-group-addon">.00</span>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="panel panel-primary">
-                    <div class="panel-heading"> Send Money</div>
-                    <div class="panel-body">
-                        @include('errors.list')
-                        <br/>
-                        {{--<div class="col-sm-6">--}}
-                        {!! Form::open(['id' => 'frm-send-money', 'url' => route('save-send-money-info'), 'method' => 'POST']) !!}
-                        {!! Form::hidden('user_id', Auth::user()->id) !!}
-                        <label for="basic-url">Remittance Center :</label>
-                        <select class="form-control" name="remittance_id">
-                            @foreach($remittances as $remittance)
-                                <option value="{{ $remittance->id }}">{{ $remittance->name }}</option>
-                            @endforeach
-                        </select>
+            <div class="form-group">
+                <label for="recipients_name">Recipient's Name :</label>
+                <input type="text" id="recipients_name" name="recipient_name" class="form-control">
+            </div>
 
-                        <br>
-                        <label for="basic-url">Amount :</label>
+            <div class="form-group">
+                <label for="contact_number">Recipient's Contact Number :</label>
+                <input type="text" id="contact_number" name="contact_number" class="form-control">
+            </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon">₱</span>
-                            <input type="text" name="amount" class="form-control"
-                                   aria-label="Amount (to the nearest dollar)">
-                            <span class="input-group-addon">.00</span>
-                        </div>
+            <div class="form-gropup">
+                <label for="address">Recipient's Address :</label>
+                <input type="text" id="address" name="address" class="form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <textarea name="memo" class="form-control" id="text" name="text"
+                                  placeholder="Type in your short message"
+                                  rows="5"></textarea>
+            </div>
+            <button class="btn btn-info" type="button" id="btn-submit">Send</button>
+        </div>
+    </div>
 
-                        <br/>
-                        <label for="basic-url">Recipient's Name :</label>
-                        <input type="text" name="recipient_name" class="form-control">
 
-                        <br/>
-                        <label for="basic-url">Recipient's Contact Number :</label>
-                        <input type="text" name="contact_number" class="form-control">
-
-                        <br/>
-                        <label for="basic-url">Recipient's Address :</label>
-                        <input type="text" name="address" class="form-control">
-
-                        <br/>
-                        <br/>
-                                    <textarea name="memo" class="form-control" id="text" name="text"
-                                              placeholder="Type in your message"
-                                              rows="5"></textarea>
-                        <h6 class="pull-right" id="count_message"></h6>
-                        <br/>
-                        <button class="btn btn-info" type="submit" id="btn-submit">Send</button>
-                        {!! Form::close() !!}
-                    </div>
-                </div>
+<div class="modal fade" id="form-data" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Please check you input.
+                </h4>
+            </div>
+            <div class="modal-body">
+                {!! Form::open(['id' => 'frm-send-money', 'url' => route('save-send-money-info'), 'method' => 'POST']) !!} 
+                    {!!Form::hidden('remittance_center','', ['class' => 'hremittance_center']) !!}
+                    <b>Remitance Center:</b> <span class="sremittance_center"></span><br>
+                    {!!Form::hidden('amount','', ['class' => 'hamount']) !!}
+                    <b>Amount:</b> <span class="samount"></span><br>
+                    {!!Form::hidden('recipients_name','', ['class' => 'hrecipient']) !!}
+                    <b>Recipient:</b> <span class="srecipient"></span><br>
+                    {!!Form::hidden('contact_number', '', ['class' => 'hcontact_number'] ) !!}
+                    <b>Contact Number:</b> <span class="scontact_number"></span><br>
+                    {!!Form::hidden('address', '', ['class' => 'haddress'] ) !!}
+                    <b>Contact Address:</b> <span class="saddress"></span><br>
+                    {!!Form::hidden('message', '', ['class' => 'hmessage'] ) !!}
+                    <b>Message:</b> <span class="smessage"></span><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button> 
+                <button type="submit" class="btn btn-primary">
+                    Confirm
+                </button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
+</div>
 @endsection
-@include ('footer')
+@section ('footer_includes')
 <script>
     $(function () {
-//        $( function() {
-//            $( "#dialog" ).dialog();
-//        } );
-//
-//        $( "#opener" ).on( "click", function() {
-//            $( "#dialog" ).dialog( "open" );
-//        });
-//
-//        $('#frm-send-money').submit(function( event ) {
-//            var values = $( this ).serializeArray();
-//            jQuery.each( values, function( i, field ) {
-//                console.log(field.value);
-//            });
-//
-//            event.preventDefault();
-//        });
+        $('#btn-submit').on('click', function(){
+            var text_remittance = $('#remittance_id').find(':selected').text();
+            var val_remittance = $('#remittance_id').val();
+            $('.hremittance_center').val(val_remittance);
+            $('.sremittance_center').text(text_remittance);
+
+            $('#form-data').modal('show');
+        });
     });
 </script>
+
+@endsection

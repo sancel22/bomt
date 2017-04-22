@@ -16,32 +16,28 @@ class PagesController extends Controller
     public function index()
     {
         if(Auth::check()) {
-            return view('pages.dashboard', compact('amount'));
+            $first = 'Fox';
+            $last = 'lazy';
+
+            $people = [
+                'Alvie',
+                'Alvee',
+                'Aisle Bee',
+            ];
+
+            $remittances = Remittance::all();
+
+            JavaScript::put([
+                'foo' => 'bar',
+                'age' => 29
+            ]);
+
+            return view('pages.dashboard', compact('remittances'));
         }
 
         return view('pages.index');
     }
 
-    public function dashboard()
-    {
-        $first = 'Fox';
-        $last = 'lazy';
-
-        $people = [
-            'Alvie',
-            'Alvee',
-            'Aisle Bee',
-        ];
-
-        $remittances = Remittance::all();
-
-        JavaScript::put([
-            'foo' => 'bar',
-            'age' => 29
-        ]);
-
-        return view('pages.dashboard', compact('first', 'last', 'remittances'));
-    }
 
     public function confirm(TransactionRequest $request)
     {
