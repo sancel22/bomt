@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
             }
             $view->with('credit', $amount);
         });
+
     }
 
     /**

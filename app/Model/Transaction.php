@@ -7,7 +7,7 @@ use App\User;
 
 class Transaction extends Model
 {
-    public $fillable = ['remittance_id', 'recipient_id', 'memo', 'credit_id'];
+    public $fillable = ['remittance_id', 'recipient_id', 'memo', 'credit_id', 'code'];
 
     public function recipient()
     {

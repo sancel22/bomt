@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">BIBO ON CaRe</a>
+            <a class="navbar-brand" href="/">BIBO On CaRe</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -84,6 +84,17 @@
         @yield('content')
     </div>
 </div>
+<script>
+$(function(){
+
+var autoClosingAlert = function(selector, delay) {
+   var alert = $('.alert').alert();
+   window.setTimeout(function() { alert.slideUp() }, delay);
+}
+autoClosingAlert('alert', 2000);
+});
+
+</script>
 @yield('footer_includes')
 </body>
 </html>

@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('credit_id')->nullable();
             $table->integer('recipient_id')->nullable();
             $table->string('memo')->nullable();
+            $table->string('code')->nullable();
             $table->timestamps();
         });
     }

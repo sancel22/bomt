@@ -9,13 +9,13 @@ class RemittancesTableSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'palawan',
+                'name' => 'Palawan Express',
             ],
             [
-                'name' => 'cebuana lhuillier',
+                'name' => 'Cebuana Lhuillier',
             ],
             [
-                'name' => 'm lhuillier',
+                'name' => 'M Lhuillier',
             ],
             [
                 'name' => 'LBC Money Express',

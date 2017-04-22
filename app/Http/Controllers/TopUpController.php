@@ -15,14 +15,15 @@ class TopUpController extends Controller
     {
         $this->validate($request, [
             'payment_type' => 'not_in:select',
-            'amount' => 'required',
+            'amount' => 'required|numeric',
         ]);
+        $amount = $request->input('amount');
         $request->user()->credits()->create([
-            'amount' => $request->input('amount'),
+            'amount' => $amount * 100,
             'payment_code' => $this->stringCode()
         ]);
 
-        $request->session()->flash('success', 'Successfully Added');
+        $request->session()->flash('success', "Thank you for purchasing {$amount} worth of credits");
         return redirect('/');
     }
 

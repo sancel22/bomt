@@ -139,7 +139,7 @@
             };
 
             var formatCurrency = function(amount) {
-                    return parseFloat(amount, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()
+                return parseFloat(amount, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()
             }
 
         });

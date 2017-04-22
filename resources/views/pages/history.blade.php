@@ -11,6 +11,7 @@
                         <th>SQ</th>
                         <th>Remittance Center</th>
                         <th>Amount</th>
+                        <th>Code</th>
                         <th>Recipient Name</th>
                         <th>Recipient Contact Number</th>
                         <th>Address</th>
@@ -23,7 +24,8 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $row->remittance->first()->name }}</td>
-                            <td>{{ $row->credit->amount * (-1) }}</td>
+                            <td>{{ ($row->credit->amount/100) * (-1) }}</td>
+                            <td>{{ $row->code }}</td>
                             <td>{{ $row->recipient->full_name }}</td>
                             <td>{{ $row->recipient->contact_number }}</td>
                             <td>{{ $row->recipient->address }}</td>
