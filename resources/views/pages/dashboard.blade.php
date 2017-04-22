@@ -5,6 +5,7 @@
         <div class="panel-heading"> Send Money</div>
         <div class="panel-body">
             @include('errors.list')
+            @include('flash')
             <div class="form-group">
                 <label for="remittance_id">Remittance Center :</label>
                 <select class="form-control" name="remittance_id" id="remittance_id">

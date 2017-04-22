@@ -25,6 +25,19 @@ class PagesController extends Controller
 
     public function store(TransactionRequest $request)
     {
+        $credits = (new Credit)->getCredits();
+        $amount = $request->input('amount');
+
+        if ($credits < (int) $amount) {
+            $request->session()->flash('error', "Sorry Your do not have credits to proceed with this transaction");
+            return redirect()->back();
+        }
+
+        $request->user()->credits()->create([
+            'amount' => $amount * -1,
+            'payment_code' => 'transfer'
+        ]);
+
         $recipient = $request->user()->recipients()->create([
             'full_name' => $request->input('recipients_name'),
             'address' => $request->input('address'),
@@ -35,6 +48,7 @@ class PagesController extends Controller
            [
                'remittance_id' => $request->input('remittance_center'),
                'recipient_id' => $recipient->id,
+               'amount' => $amount,
                'memo' => $request->input('message')
            ]
        );

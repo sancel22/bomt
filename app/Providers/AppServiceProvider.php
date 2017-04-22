@@ -21,13 +21,9 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('*', function($view) {
             if (auth()->check()) {
-                $this->amount = Credit::where('user_id', auth()->user()->id )->sum('amount');
+                $this->amount = (new Credit)->getCredits();
             }
             $view->with('credit', $this->amount);
-        });
-
-        Validator::extend('', function($attribute, $value, $parameters, $validator){
-            return $this->amount >= $value;
         });
     }
 
