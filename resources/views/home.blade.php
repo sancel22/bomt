@@ -5,43 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <style>
-        body {
-            margin-top: 70px;
-        }
-        </style>
+        <title>Laravel Title</title>
+        <script src="/js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/app.css" />
     </head>
     <body>
-        <nav class="navbar navbar-fixed-top navbar-inverse">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">BIBO ON CaRe</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#about">Guide</a></li>
-                <li><a href="#contact">Faq</a></li>
-                <li><a href="#contact">Help</a></li>
-              </ul>
-            </div><!-- /.nav-collapse -->
-          </div><!-- /.container -->
-        </nav>
-        <div class="col-md-12">
-            <div class="col-md-3 sidebar">
-                @include('pages.login')
-            </div>
-            <div class="col-md-9">
-                @yield('content')
+        <section id="header-menu">
+            <nav class="navbar navbar-fixed-top navbar-default">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="/images/logo.png" /></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">FAQ</a></li>
+                  </ul>
+                </div><!-- /.nav-collapse -->
+              </div><!-- /.container -->
+            </nav>
+        </section>
+        <div class="row">
+            <div class="col-md-12">
+                    @yield('content')
             </div>
         </div>
     @yield('footer_includes')

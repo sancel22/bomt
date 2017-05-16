@@ -1,9 +1,111 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
 
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body {
+    margin-top: 85px;
+}
+
+.navbar {
+    height: 85px;
+    padding-top: 15px;
+}
+
+.navbar-brand {
+    margin-top: -15px;
+}
+section#header{
+    background: #fff url('/images/banner.jpg') top left / cover;
+    height: 575px;
+}
+
+.login {
+    background: #4698e1;
+    padding: 20px;
+    margin-top: 75px;
+    color: white;
+
+    .login-header{
+        background: #6bace6;
+        margin: -20px;
+        font-size: 22px;
+        padding: 20px;
+    }
+
+    .login-content {
+        margin-top: 40px;
+    }
+
+    .input-group {
+        margin-bottom: 5px;
+    }
+
+    form {
+        .form-control {
+            border-radius: 0;
+        }
+        input{
+            background: #499ae6;
+            border: 1px solid white;
+            color: white;
+        }
+        ::-webkit-input-placeholder { /* Chrome */
+          color: white;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+          color: white;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+          color: white;
+          opacity: 1;
+        }
+        :-moz-placeholder { /* Firefox 4 - 18 */
+          color: white;
+          opacity: 1;
+        }
+    }
+}
+
+section#how-it-works {
+    padding: 20px;
+    img {
+        margin: 20px;
+    }
+    .step-title {
+        font-weight: bold;
+    }
+}
+section#money-is-safe {
+    background: #ebebeb;
+    padding: 100px;
+}
+
+section#partners {
+    padding: 30px;
+}
+
+section#app {
+    background: #fff url('/images/app_banner.jpg') top left / cover;
+    height: 327px;
+    padding: 125px;
+
+    .app-header {
+        font-size: 25px;
+        color: white;
+    }
+}
+
+section#footer {
+    background: black;
+    height: 65px;
+    padding: 20px;
+    color: white;
+    a {
+        color: white;
+    }
+}
