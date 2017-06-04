@@ -25,6 +25,12 @@ class PagesController extends Controller
         return view('pages.index');
     }
 
+    public function remit()
+    {
+        $remittances = Remittance::all();
+        return view('pages.remit', compact('remittances'));
+    }
+
     public function store(TransactionRequest $request)
     {
         $credits = (new Credit)->getCredits();

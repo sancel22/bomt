@@ -8,8 +8,10 @@
         <title>Laravel Title</title>
         <script src="/js/app.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/app.css" />
+        <style type="text/css">
+        </style>
     </head>
-    <body>
+    <body style="margin-top: 80px">
         <section id="header-menu">
             <nav class="navbar navbar-fixed-top navbar-default">
               <div class="container">

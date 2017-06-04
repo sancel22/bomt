@@ -8,7 +8,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-    margin-top: 85px;
+    margin-top: 100px;
 }
 
 .navbar {
@@ -107,5 +107,110 @@ section#footer {
     color: white;
     a {
         color: white;
+    }
+}
+
+.sidebar {
+    .box {
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+    .side-panel {
+
+        background : #87c4ff;
+        color: #fff;
+
+        .side-panel-heading {
+            text-align: center;
+
+            .user-name {
+                margin: 20px;
+                color: #fbea90;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+
+        .side-panel-body {
+            .member-data {
+                font-style: italic;
+                font-weight: light;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .menu-panel {
+        background: #ececec;
+
+        .menu-panel-heading {
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .nav > li > a {
+            color: #666666;
+        }
+        .nav > li > a:hover, .nav > li > a:focus {
+            background: #87c4ff;
+            color: #fff;
+        }
+    }
+    .logout a {
+        color: #333;
+        font-weight: bold;
+    }
+}
+.user-info {
+    background: #87c4ff;
+}
+
+.content-panel {
+    .content-panel-heading {
+        background: #a1c910;
+        padding: 10px;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .content-panel-body {
+        border: 1px solid #ccc;
+        padding: 15px;
+    }
+}
+
+.btn-green {
+    background: #9cc30f;
+    color: #fff;
+}
+
+.content {
+    h2 {
+        color: #333333;
+        font-size: 25px;
+    }
+
+    p {
+        color: #666;
+    }
+}
+
+.footer {
+    background: #000;
+    padding: 15px 0 0;
+
+    .footer-menu {
+        font-size: 14px;
+        color: #999;
+
+        a {
+            color: #999;
+        }
+
+        a:hover {
+            color: #fff;
+        }
     }
 }

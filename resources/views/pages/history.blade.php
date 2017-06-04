@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="panel panel-primary">
-        <div class="panel-heading">Transaction History</div>
-        <div class="panel-body">
+    <div class="content-panel">
+        <div class="content-panel-heading">Transaction History</div>
+        <div class="content-panel-body">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>

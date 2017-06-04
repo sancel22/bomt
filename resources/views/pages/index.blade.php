@@ -7,14 +7,15 @@
                 <div class="login-header">Login your account!</div>
                 <div class="login-content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat veritatis, expedita! Ipsa natus </p>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
                       <div class="input-group">
                       <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" name="email" value="{{old('email')}}" class="form-control" id="inputEmail" placeholder="Email">
                       </div>
                       <div class="input-group">
                             <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
                       </div>
                       <div class="input-group">
                           <div class="checkbox">

@@ -7,9 +7,9 @@
         display: none;
     }
 </style>
-<div class="panel panel-primary">
-    <div class="panel-heading"> Top Up Credit </div>
-    <div class="panel-body"> 
+<div class="content-panel">
+    <div class="content-panel-heading"> Top Up Credit </div>
+    <div class="content-panel-body"> 
         @include('errors')
         <form role="form" action="{{ route('save-top-up') }}" method='post'>
             {{ csrf_field() }}
@@ -64,7 +64,7 @@
                 </div>
                     <p class="help-box">Process via Stripe</p>
             </div>
-            <button type="submit" class="btn btn-success">
+            <button type="submit" class="btn btn-green">
                 Submit
             </button>
         </form>
