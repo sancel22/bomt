@@ -19,6 +19,7 @@ Route::get('/dashboard', 'PagesController@dashboard');
 Route::post('/confirm', 'PagesController@confirm')->name('confirm-send-money-info');
 Route::post('/store', 'PagesController@store')->name('save-send-money-info');
 Route::get('/history', 'PagesController@history')->name('user-transaction-history');
+Route::get('/notifications', 'PagesController@notifications')->name('notifications');
 
 Auth::routes();
 

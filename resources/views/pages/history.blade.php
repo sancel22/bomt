@@ -24,7 +24,7 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $row->remittance->first()->name }}</td>
-                            <td>{{ ($row->credit->amount/100) * (-1) }}</td>
+                            <td>Php {{ number_format((($row->credit->amount/100) * (-1)), 2, '.', ',') }}</td>
                             <td>{{ $row->code }}</td>
                             <td>{{ $row->recipient->full_name }}</td>
                             <td>{{ $row->recipient->contact_number }}</td>

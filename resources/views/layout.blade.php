@@ -80,7 +80,7 @@
                                 <li><a href="/remit">Send Money</a></li>
                                 <li><a href="{{route('topup')}}">Top Up</a></li>
                                 <li><a href="{{route('user-transaction-history')}}">History</a></li>
-                                <li><a href="#">Notification</a></li>
+                                <li><a href="{{route('notifications')}}">Notification</a></li>
                             </ul>
                         </div>
                     </div>
