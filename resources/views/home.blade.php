@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Title</title>
+        <title>Bibo Online Cash Remittance</title>
         <script src="/js/app.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/app.css" />
         <style type="text/css">
