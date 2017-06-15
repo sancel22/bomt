@@ -4,32 +4,13 @@
     <section id="header">
         <div class="container">
             <div class="col-md-4 col-md-offset-8 login">
-                <div class="login-header">Login your account!</div>
+                <div class="login-header">Welcome to our services</div>
                 <div class="login-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat veritatis, expedita! Ipsa natus </p>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-                      <div class="input-group">
-                      <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
-                          <input type="email" name="email" value="{{old('email')}}" class="form-control" id="inputEmail" placeholder="Email">
-                      </div>
-                      <div class="input-group">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-                          <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
-                      </div>
-                      <div class="input-group">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Remember me
-                            </label>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-12">
-                          <button type="submit" class="btn btn-default col-md-12">Sign in</button>
-                        </div>
-                      </div>
-                    </form>
+                    <p>Easy and trusted for <b>Money Transfer Online</b></p>
+                    <button type="button" class="btn btn-transparent col-md-12" data-toggle="modal" data-target="#loginModal"> Login </button>
+                    <p class="or clearfix">OR</p>
+                    <button type="button" class="btn btn-transparent col-md-12"> Register </button>
+                    <button type="button" class="btn btn-transparent col-md-12"> <i class=" fa fa-facebook" ></i> Signin with facebook </button>
                 </div>
             </div>
         </div>
@@ -141,4 +122,45 @@
             </div>
         </div>
     </section>
+
+
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+       <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
+          <div class="input-group">
+          <div class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></div>
+              <input type="email" name="email" value="{{old('email')}}" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+          <br>
+          <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+          <div class="input-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-default col-md-12">Get Started</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
 @stop

@@ -65,12 +65,23 @@
                         </div>
                         <hr>
                         <div class="side-panel-footer logout">
-                            <span class="glyphicon glyphicon-log-out"></span>
-                            <a href="{{ url('/logout') }}"
-                                   onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();"">
-                                    Logout
+                            <div class="pull-left">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                <a href="#"
+                                       onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"">
+                                    Edit Profile
                                 </a>
+                            </div>
+                            <div class="pull-right">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                <a href="{{ url('/logout') }}"
+                                       onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"">
+                                        Logout
+                                </a>
+                            </div>
+                            <br clear="clearfix">
                         </div>
                     </div>
                     <div class="menu-panel box">
@@ -93,7 +104,7 @@
         
     </div>
 </div>
-<div class="footer">
+<div class="footer col-md-12">
     <div class="container">
         <div class="col-md-12">
             <div class="footer-menu col-md-6">
