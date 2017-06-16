@@ -195,8 +195,21 @@ section#footer {
     margin-bottom: 10px;
 }
 
-.input-group-addon {
-    background: blue;
+.btn-skyblueish {
+    background : #4698e1;
+    color: #fff;
+}
+
+#loginModal {
+    .input-group-addon {
+        background: #4698e1;
+        border: 1px solid #4698e1;
+        color: #fff;
+    }
+
+    .form-control {
+        border: 1px solid #4698e1;
+    }
 }
 
 .content {
@@ -234,7 +247,7 @@ section#footer {
     #loginModal {
         .modal-dialog {
             width: 350px;
-            margin: 30px auto;
+            margin: 200px auto 0;
         }
         .modal-content {
             -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);

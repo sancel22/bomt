@@ -154,7 +154,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-default col-md-12">Get Started</button>
+              <button type="submit" class="btn btn-skyblueish col-md-12">Get Started</button>
             </div>
           </div>
         </form>
